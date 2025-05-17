@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox fx:id="rootVBox" maxHeight="200" maxWidth="400" minHeight="200" minWidth="400" spacing="5" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.infuseting.grapheditor.controller.NodeCreatorController">
+   <BorderPane prefHeight="200.0" prefWidth="200.0">
+      <top>
+         <!-- Zone de recherche -->
+         <TextField fx:id="searchField" promptText="Rechercher un type de nœud..." BorderPane.alignment="CENTER" />
+      </top>
+      <center>
+      
+         <!-- Scrollable list -->
+         <ScrollPane fx:id="scrollPane" fitToWidth="true" BorderPane.alignment="CENTER">
+            <content>
+               <VBox fx:id="nodeContainer" spacing="5" />
+            </content>
+         </ScrollPane>
+      </center>
+      <opaqueInsets>
+         <Insets />
+      </opaqueInsets>
+      <padding>
+         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+      </padding>
+   </BorderPane>
+</VBox>
