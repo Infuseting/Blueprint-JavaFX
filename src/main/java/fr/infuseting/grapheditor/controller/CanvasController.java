@@ -44,12 +44,19 @@ public class CanvasController implements Initializable {
             pane.setPrefHeight(newVal.getHeight());
         });
 
+
+
     }
 
     @FXML
     private void onMouseMoved(MouseEvent mouseEvent) {
         controller.prevX.set(mouseEvent.getX());
         controller.prevY.set(mouseEvent.getY());
+    }
+
+    @FXML
+    private void onMouseClick(MouseEvent mouseEvent) {
+
     }
 
 

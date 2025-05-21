@@ -26,6 +26,7 @@ public class App extends Application {
         stage.titleProperty().bind(controller.getTitleProperty());
         stage.setScene(scene);
         stage.getScene().setOnKeyPressed(event -> controller.onKeyPressed(event));
+        stage.getScene().setOnMouseClicked(event -> controller.onMouseClick(event));
         stage.show();
         closeWindow(stage, controller);
     }

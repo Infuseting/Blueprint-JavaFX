@@ -3,7 +3,6 @@ package fr.infuseting.grapheditor.controller;
 import fr.infuseting.grapheditor.App;
 import fr.infuseting.grapheditor.Dialogues;
 import javafx.beans.property.SimpleDoubleProperty;
-import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,6 +10,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseButton;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.net.URL;
@@ -46,6 +47,7 @@ public class Controller implements Initializable {
         canvasController.setController(this);
         statutController.setController(this);
 
+
         statutController.coordsXLabel.textProperty().bind(prevX.asString("%.0f"));
         statutController.coordsYLabel.textProperty().bind(prevY.asString("%.0f"));
         statutController.nodeLabel.textProperty().bind(nodeProperty);
@@ -68,6 +70,11 @@ public class Controller implements Initializable {
     public void onKeyPressed(KeyEvent event) {
         if (event.getCode() == KeyCode.T && event.isControlDown()) {
 
+            openNodeCreationWindow(prevX.getValue(), prevY.getValue());
+        }
+    }
+    public void onMouseClick(MouseEvent event) {
+        if (event.getButton() == MouseButton.SECONDARY) {
             openNodeCreationWindow(prevX.getValue(), prevY.getValue());
         }
     }

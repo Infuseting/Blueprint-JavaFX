@@ -81,7 +81,7 @@ public abstract class Node<T extends Node<T>> {
 
     public void generatePort(List<Port> portsInput, BorderPane gridPane, Controller controller, EnumPortType portType) {
         GridPane pane = portType == EnumPortType.INPUT ? (GridPane) gridPane.lookup("#inputPortGrid") :  (GridPane) gridPane.lookup("#outputPortGrid");
-        double minSize = Double.MAX_VALUE;
+        double minSize = 25;
         pane.addRow(portsInput.size());
         for (Port port : portsInput) {
 
@@ -94,7 +94,6 @@ public abstract class Node<T extends Node<T>> {
                 GridPane father = (GridPane) portView.getParent();
                 father.setColumnIndex(colorPane, portType == EnumPortType.INPUT ? 0 : 1);
                 father.setColumnIndex(labelPort, portType == EnumPortType.INPUT ? 1 : 0);
-                minSize = Math.min(Math.min(colorPane.getWidth(), colorPane.getHeight()), minSize);
                 colorPane.setPrefSize(minSize, minSize);
                 colorPane.setMinSize(minSize, minSize);
                 colorPane.setMaxSize(minSize, minSize);

@@ -56,7 +56,10 @@ public class BoolNode extends Node{
             nodeView.setLayoutY(this.y);
             nodeView.setPrefWidth(this.width);
             nodeView.setPrefHeight(this.height);
+            nodeView.setOnMouseReleased(event-> { controller.nodeProperty.setValue("null");});
             nodeView.setOnMouseDragged(event -> {
+                controller.nodeProperty.setValue(this.name);
+
                 this.x = this.x + event.getX();
                 this.y = this.y + event.getY();
 
